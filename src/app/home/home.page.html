@@ -1,14 +1,86 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>
-      Ionic Blank
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
 
-<ion-content>
-  <div class="ion-padding">
-    The world is your oyster.
-    <p>If you get lost, the <a target="_blank" rel="noopener" href="https://ionicframework.com/docs/">docs</a> will be your guide.</p>
+
+
+
+<ion-content style="--background: rgb(189,213,255)">
+  <div><ion-icon name="add-circle" [routerLink]="['/add-carro']"></ion-icon></div>
+  <ion-title>
+    EasyGas
+  </ion-title>
+
+
+
+  <div>
+    <ion-grid>
+      <ion-row class="linha">
+        <ion-card>
+          <ion-list>
+            <ion-select [(ngModel)]="itemSelecionado" placeholder="Selecione o Carro">
+              <ion-select-option *ngFor="let car of cars" [value]="car"> {{car.carName}} </ion-select-option>
+            </ion-select>
+
+          </ion-list>
+        </ion-card>
+      </ion-row>
+
+
+      <ion-row class="linhaP">
+
+        <ion-col margin-end="2px">
+          <ion-card>
+
+            <div class="divImg">
+              <img src="../../assets/gas.png">
+            </div>
+
+            <div class="divInput">
+              <input [(ngModel)]="precoAtualGasolina" placeholder="Gasolina" type="number" step="0.01" />
+            </div>
+
+          </ion-card>
+        </ion-col>
+
+        <ion-col>
+          <ion-card>
+            <div class="divImg"><img src="../../assets/gas.png"></div>
+            <div class="divInput">
+              <input [(ngModel)]="precoAtualAlcool" placeholder="Alcool" type="number" step="0.01"/>
+            </div>
+          </ion-card>
+        </ion-col>
+
+      </ion-row>
+
+
+
+      <ion-row class="linhaB">
+          <ion-button fill="outline" expand="full" (click)="calcular()">CALCULAR</ion-button>
+      </ion-row>
+
+      <ion-row class="linha">
+        <ion-card id="cardMelhorOpt" >
+          Abasteça com {{melhorOpt}}
+        </ion-card>
+      </ion-row>
+
+    </ion-grid>
   </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </ion-content>

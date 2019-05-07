@@ -1,1 +1,27 @@
+ion-row{
+  margin: 2px 20% 2px 20%;
+}
 
+ion-card{
+  margin: 0;
+  background-color: #0ec254;
+  padding: 1px;
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: start;
+}
+
+div.divImg{
+  background-color: #4c8dff;
+  padding: 0;
+  margin-right: 15px;
+}
+
+img{
+  width: 20px;
+}
+
+input {
+  width: 100px;
+}

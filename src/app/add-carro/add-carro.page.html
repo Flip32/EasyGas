@@ -1,0 +1,59 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-button>
+      <ion-icon name="home" [routerLink]="['/home']"></ion-icon>
+    </ion-button>
+    <ion-title>
+      Adicionar Carro
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item>
+    <ion-label position="fixed">Nome</ion-label>
+    <ion-input [(ngModel)]="newCar.carName"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="fixed">Gasolina</ion-label>
+    <ion-input [(ngModel)]="newCar.gasolina"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="fixed">Alcool</ion-label>
+    <ion-input [(ngModel)]="newCar.alcool"></ion-input>
+  </ion-item>
+
+  <ion-button expand="full" (click)="addCar()">Add Item!</ion-button>
+
+  <ion-list #mylist>
+
+    <ion-list-header>
+      <ion-label>My Items</ion-label>
+    </ion-list-header>
+
+    <ion-item-sliding *ngFor="let car of cars">
+
+      <ion-item>
+        <ion-label text-wrap>
+          <h3 style="color: #000000;">{{ car.carName }}</h3>
+          <ion-text color="secondary">
+            <p>{{ car.gasolina }} Km/L</p>
+          </ion-text>
+          <ion-text color="secondary">
+            <p>{{ car.alcool }} Km/L</p>
+          </ion-text>
+          <p>{{ car.modified | date:'short'}}</p>
+        </ion-label>
+      </ion-item>
+
+      <ion-item-options side="end">
+        <ion-item-option color="secondary" (click)="editCar(car)">Update</ion-item-option>
+        <ion-item-option color="danger" (click)="deleteCar(car)">Delete</ion-item-option>
+      </ion-item-options>
+    </ion-item-sliding>
+
+  </ion-list>
+
+</ion-content>
