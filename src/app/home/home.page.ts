@@ -15,6 +15,7 @@ export class HomePage {
   public custoKmAlcool: number
   public resultado70: number
   public melhorOpt: string
+  public opt: string
   public precoAtualGasolina: number
   public precoAtualAlcool: number
 
@@ -44,9 +45,11 @@ export class HomePage {
     {
       this.resultado70 = this.precoAtualGasolina * 0.7; /*console.log(this.resultado70)*/
       if (this.precoAtualAlcool < this.resultado70) {
-        this.melhorOpt = 'Alcool'; console.log('depois do alcool ' + this.resultado70)
+        this.melhorOpt = 'Alcool.';
+        this.opt = 'Opção baseada na diferença de 70%'
       } else {
-        this.melhorOpt = 'Gasolina'; console.log('depois do gasolina ' + this.resultado70)
+        this.melhorOpt = 'Gasolina.';
+        this.opt = 'Opção baseada na diferença de 70%'
       }
 
 
@@ -55,14 +58,14 @@ export class HomePage {
       this.consumoGasolina = this.itemSelecionado.gasolina;
       this.consumoAlcool = this.itemSelecionado.alcool;
       this.custoKmGasolina = this.precoAtualGasolina / this.consumoGasolina;
-      console.log(this.custoKmGasolina);
       this.custoKmAlcool = this.precoAtualAlcool / this.consumoAlcool;
-      console.log(this.custoKmAlcool);
 
       if (this.custoKmGasolina <= this.custoKmAlcool) {
-        this.melhorOpt = 'Gasolina com certeza';
+        this.melhorOpt = 'Gasolina!';
+        this.opt = 'Calculado em cima do consumo do seu carro.'
       } else {
-        this.melhorOpt = 'Alcool com certeza';
+        this.melhorOpt = 'Alcool!';
+        this.opt = 'Calculado em cima do consumo do seu carro.'
       }
     }
   }

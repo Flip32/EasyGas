@@ -1,13 +1,16 @@
 <ion-header>
   <ion-toolbar color="primary">
-    <ion-button>
-      <ion-icon name="home" [routerLink]="['/home']"></ion-icon>
-    </ion-button>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
     <ion-title>
       Adicionar Carro
     </ion-title>
   </ion-toolbar>
 </ion-header>
+
+<!--===================================================-->
+<!--===================================================-->
 
 <ion-content>
   <ion-item>
@@ -25,7 +28,7 @@
     <ion-input [(ngModel)]="newCar.alcool"></ion-input>
   </ion-item>
 
-  <ion-button expand="full" (click)="addCar()">Add Item!</ion-button>
+  <ion-button color="secondary" expand="full" (click)="addCar()">Add Item!</ion-button>
 
   <ion-list #mylist>
 
